@@ -1,0 +1,82 @@
+<!--
+  Outfit Recommender - index.html
+  Purpose: Single-page UI for the Outfit Recommender prototype.
+  How to change location: enter a city name (autocomplete via Open-Meteo geocoding) or switch to "Lat/Lon" mode and enter numeric latitude & longitude.
+  To run locally: open this file in a browser (no server required). To run on Replit, create a new static Replit and paste these files.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Outfit Recommender</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Outfit Recommender</h1>
+
+    <form id="location-form" aria-describedby="instructions">
+      <div id="instructions">Enter a city name or switch to lat/lon input. Choose how you usually feel and click "Get Recommendation".</div>
+
+      <fieldset>
+        <legend>Input method</legend>
+        <label>
+          <input type="radio" name="mode" value="city" checked>
+          City
+        </label>
+        <label>
+          <input type="radio" name="mode" value="latlon">
+          Lat / Lon
+        </label>
+      </fieldset>
+
+      <div id="city-inputs">
+        <label for="city">City name</label>
+        <input id="city" name="city" type="search" placeholder="e.g. London, New York" aria-label="City name" />
+      </div>
+
+      <div id="latlon-inputs" hidden>
+        <label for="lat">Latitude</label>
+        <input id="lat" name="lat" type="number" step="any" placeholder="e.g. 51.5072" aria-label="Latitude" />
+
+        <label for="lon">Longitude</label>
+        <input id="lon" name="lon" type="number" step="any" placeholder="e.g. -0.1276" aria-label="Longitude" />
+      </div>
+
+      <label for="pref">How do you feel?</label>
+      <select id="pref" name="pref" aria-label="Preference: cold, normal or hot">
+        <option value="cold">I feel cold</option>
+        <option value="normal" selected>Normal</option>
+        <option value="hot">I feel hot</option>
+      </select>
+
+      <button type="submit" id="get-btn">Get Recommendation</button>
+    </form>
+
+    <section id="results" aria-live="polite">
+      <h2 id="place">—</h2>
+
+      <div id="summary" class="card">
+        <div id="temps">High: —  Low: —</div>
+        <div id="precip">Precipitation chance: —</div>
+        <div id="wind">Wind: —</div>
+      </div>
+
+      <div id="outfit" class="card" role="region" aria-label="Outfit recommendation">
+        <div id="outfit-icon" class="icon">🧥</div>
+        <div id="outfit-text">No recommendation yet</div>
+        <div id="outfit-reason" class="reason"></div>
+      </div>
+    </section>
+
+    <details class="notes">
+      <summary>Developer / Test info</summary>
+      <p>Uses Open-Meteo APIs (no key needed). Geocoding: <code>https://geocoding-api.open-meteo.com/v1/search?name=</code>. Forecast: <code>https://api.open-meteo.com/v1/forecast</code>.</p>
+      <p>Open the browser console and call <code>runTests()</code> to execute built-in test cases for the recommendation engine.</p>
+    </details>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
