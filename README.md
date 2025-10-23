@@ -1,34 +1,78 @@
-# Outfit Recommender
+# 🌤️ Outfit Recommender
 
-A lightweight, client-side web app that suggests what to wear based on today's weather forecast. Uses Open-Meteo APIs (no key required) to fetch weather data and provides clothing recommendations using deterministic rules.
+A smart, easy-to-use web app that helps you decide what to wear based on today's weather. No account needed, no API keys required!
 
-## Features
+![Outfit Recommender Demo](./docs/demo.png)
 
-- 🌍 Enter a city name or lat/lon coordinates
-- 🌡️ Shows today's high/low temperatures, precipitation chance, and wind speed
-- 👕 Provides outfit recommendations based on weather conditions
-- 🔧 Adjusts suggestions based on personal temperature preference (cold/normal/hot)
-- 🌐 No backend required - runs entirely in the browser
-- ♿ Accessible UI with screen reader support
-- 📱 Responsive design for mobile and desktop
+## 📑 Table of Contents
+- [Quick Start Guide](#-quick-start-guide)
+- [Detailed Features](#-detailed-features)
+- [Step-by-Step Usage](#-step-by-step-usage)
+- [How It Makes Recommendations](#-how-it-makes-recommendations)
+- [Technical Details](#-technical-details)
+- [Customization Guide](#-customization-guide)
+- [Troubleshooting](#-troubleshooting)
+- [Development Guide](#-development-guide)
 
-## Quick Start
+### Core Features
+- **Location Input**
+  - City name (e.g., "London", "New York")
+  - Coordinates (e.g., "51.5072,-0.1276")
+  - Automatic city completion and validation
+  
+- **Weather Information**
+  - Today's high and low temperatures
+  - Precipitation probability
+  - Wind speed
+  
+- **Smart Recommendations**
+  - Clothing suggestions based on temperature
+  - Rain gear recommendations
+  - Wind protection advice
+  
+- **Personalization**
+  - Temperature preference adjustment
+  - "Feels like" temperature consideration
+  
+### Technical Features
+- ✨ No installation required
+- 🔒 No API keys needed
+- 📱 Works on mobile and desktop
+- ♿ Screen reader friendly
+- � No external dependencies
+- 💨 Fast loading (<100KB total)
 
-1. Clone this repository:
-```bash
-git clone https://github.com/zhangyiwen362-eng/Outfit-Recommender.git
-cd Outfit-Recommender
-```
+### Method 1: Direct Browser Opening
+1. Download this project:
+   ```bash
+   git clone https://github.com/zhangyiwen362-eng/Outfit-Recommender.git
+   ```
+2. Open the folder
+3. Double-click `index.html`
+4. That's it! The app will open in your default browser
 
-2. Open `index.html` in your browser:
-- Double-click the file
-- Or serve it locally using Python:
-  ```bash
-  python3 -m http.server 8000
-  ```
-  Then visit http://localhost:8000
+### Method 2: Using a Local Server
+1. Open your terminal
+2. Navigate to the project folder:
+   ```bash
+   cd path/to/Outfit-Recommender
+   ```
+3. Start a simple server (choose one):
+   ```bash
+   # If you have Python 3:
+   python3 -m http.server 8000
 
-## How It Works
+   # If you have Python 2:
+   python -m SimpleHTTPServer 8000
+
+   # If you have Node.js:
+   npx http-server
+   ```
+4. Open your browser and go to:
+   - Python server: http://localhost:8000
+   - Node.js server: http://localhost:8080
+
+## 📝 Step-by-Step Usage
 
 1. Enter a location:
    - Type a city name (e.g., "London", "New York")
